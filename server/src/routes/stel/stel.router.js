@@ -5,7 +5,8 @@ const {
     httpGetAllStelMeasurements,
     httpGetAllStelBloodPressures,
     httpGetAllStelSpo2s,
-    httpGetAllStelEKGs
+    httpGetAllStelEKGs,
+    httpGetAllStelGlucoseMeasurements,
 } = require('./stel.controller');
 
 const stelRouter = express.Router();
@@ -15,5 +16,6 @@ stelRouter.get('/', httpGetAllStelMeasurements);
 stelRouter.get('/bp', httpGetAllStelBloodPressures);
 stelRouter.get('/spo2', httpGetAllStelSpo2s);
 stelRouter.get('/ekg', httpGetAllStelEKGs);
+stelRouter.get('/glucose', httpGetAllStelGlucoseMeasurements);
 
 module.exports = stelRouter;

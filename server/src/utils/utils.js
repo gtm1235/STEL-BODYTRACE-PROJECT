@@ -26,12 +26,12 @@ function convertDataBloodPressure(data) {
     const generalData = generalDataJSON(data);
     return {
         generalData,
-        heartRate: data.measure.data.heartRate.value,
-        heartRateUnits: data.measure.data.heartRate.unit,
-        systolicBp: data.measure.data.systolic.value,
-        diastolicBp: data.measure.data.diastolic.value,
+        bpHeartRate: data.measure.data.heartRate.value,
+        bpHeartRateUnits: data.measure.data.heartRate.unit,
+        SystolicBp: data.measure.data.systolic.value,
+        DiastolicBp: data.measure.data.diastolic.value,
         bpUnits: data.measure.data.diastolic.unit,
-        irregularPulse: data.measure.data.irregularPulse.value,
+        bpIrregularPulse: data.measure.data.irregularPulse.value,
     };
 }
 
@@ -39,8 +39,8 @@ function convertDataSpo2(data) {
     const generalData = generalDataJSON(data);
     return {
         generalData,
-        heartRate: data.measure.data.heartRate.value,
-        heartRateUnits: data.measure.data.heartRate.unit,
+        spo2HeartRate: data.measure.data.heartRate.value,
+        spo2HeartRateUnits: data.measure.data.heartRate.unit,
         spo2: data.measure.data.spo2.value,
         spo2Units: data.measure.data.spo2.unit,
     };
@@ -50,8 +50,8 @@ function convertDataEKG(data) {
     const generalData = generalDataJSON(data);
     return {
         generalData,
-        irregularPulse: data.measure.data.irregularPulse.value,
-        irregularPulseUnits: data.measure.data.irregularPulse.unit,
+        ekgIrregularPulse: data.measure.data.irregularPulse.value,
+        ekgIrregularPulseUnits: data.measure.data.irregularPulse.unit,
     };
 }
 
@@ -81,7 +81,7 @@ function convertDataPillBottle(data) {
     const generalData = generalDataJSON(data);
     return {
         generalData,
-        glucose: data.measure.data,
+        data: data.measure.data,
     };
 }
 
@@ -117,8 +117,8 @@ function convertDataWearable(data) {
         generalData,
         steps: data.measure.data.steps.value,
         stepsUnits: data.measure.data.steps.unit,
-        heartRate: data.measure.data.heartRate.value,
-        heartRateUnits: data.measure.data.spo2.unit,
+        wearableHeartRate: data.measure.data.heartRate.value,
+        wearableHeartRateUnits: data.measure.data.spo2.unit,
     };
 }
 

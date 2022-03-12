@@ -50,7 +50,7 @@ describe('Test Validation Script', () => {
         expect(validationGeneral).toBe("\"hubId\" must only contain alpha-numeric characters");
     });
 
-    test('General Data transmssionTime Missing', () => {
+    test('General Data transmissionTime Missing', () => {
         const validationGeneral = generalStelSchemaValidation(generalDataTransmissionTimeMissing);
         expect(validationGeneral).toBe("\"transmissionTime\" is required");
     });

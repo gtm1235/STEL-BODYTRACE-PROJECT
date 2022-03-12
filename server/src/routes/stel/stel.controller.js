@@ -7,6 +7,7 @@ const generalStelSchemaValidation = require('../../utils/apiValidation/stelPostV
 const { getAllStelBloodPressures } = require('../../models/stel/stel.model.bp');
 const { getAllStelSpo2s } = require('../../models/stel/stel.model.spo2');
 const { getAllStelEKGs } = require('../../models/stel/stel.model.ekg');
+const { getAllStelGlucoseMeasurements } = require('../../models/stel/stel.model.glucose');
 
 function httpReceiveStelMeasurements(req, res) {
     const measurement = req.body;
@@ -17,7 +18,7 @@ function httpReceiveStelMeasurements(req, res) {
     if (validationResult != undefined) {
         return res.status(400).json({
             "result": validationResult,
-        })
+        });
     } else {
         receiveStelMeasurements(measurement);
         return res.status(201).json(measurement);
@@ -41,10 +42,15 @@ function httpGetAllStelEKGs(req, res) {
     return res.status(200).json(getAllStelEKGs());
 }
 
+function httpGetAllStelGlucoseMeasurements(req, res) {
+    return res.status(200).json(getAllStelGlucoseMeasurements());
+}
+
 module.exports = {
     httpReceiveStelMeasurements,
     httpGetAllStelMeasurements,
     httpGetAllStelBloodPressures,
     httpGetAllStelSpo2s,
     httpGetAllStelEKGs,
+    httpGetAllStelGlucoseMeasurements
 };

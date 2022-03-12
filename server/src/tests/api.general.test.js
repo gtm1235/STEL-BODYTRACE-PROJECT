@@ -41,42 +41,52 @@ describe('Test GET /stel/spo2 data', () => {
     });
 });
 
+describe('Test GET /stel/glucose data', () => {
+    test('It should respond with a 200 success', async () => {
+        const response = await request(app)
+            .get('/stel/glucose')
+            .expect('Content-Type', /json/)
+            .expect(200);
+        //expect(response.statusCode).toBe(200);
+    });
+});
+
 describe('Test POST stel', () => {
-    const bloodPressureData =  {
+    const bloodPressureData = {
         "id": "35263822-7b2e-4683-8720-d31ffb12149b",
         "meta": {
-          "schemaVersion": "stel-v2.0"
+            "schemaVersion": "stel-v2.0"
         },
         "hubId": "ABCDE12345",
         "transmissionTime": "2021-11-29T16:18:10+00:00",
         "device": {
-          "mac": "AB:CD:EF:12:34:5E",
-          "make": null,
-          "model": "BP Cuff"
+            "mac": "AB:CD:EF:12:34:5E",
+            "make": null,
+            "model": "BP Cuff"
         },
         "measure": {
-          "type": "bloodpressure",
-          "time": "2021-11-29T16:18:10+00:00",
-          "data": {
-            "heartRate": {
-              "value": 100,
-              "unit": "bpm"
-            },
-            "systolic": {
-              "value": 200,
-              "unit": "mmHg"
-            },
-            "diastolic": {
-              "value": 72,
-              "unit": "mmHg"
-            },
-            "irregularPulse": {
-              "value": true,
-              "unit": null
+            "type": "bloodpressure",
+            "time": "2021-11-29T16:18:10+00:00",
+            "data": {
+                "heartRate": {
+                    "value": 100,
+                    "unit": "bpm"
+                },
+                "systolic": {
+                    "value": 200,
+                    "unit": "mmHg"
+                },
+                "diastolic": {
+                    "value": 72,
+                    "unit": "mmHg"
+                },
+                "irregularPulse": {
+                    "value": true,
+                    "unit": null
+                }
             }
-          }
         }
-      };
+    };
 
     const ekgData = {
         "id": "35263822-7b2e-4683-8720-d31ffb12149b",
@@ -96,7 +106,7 @@ describe('Test POST stel', () => {
             "data": {
                 "irregularPulse": {
                     "value": true,
-                  "unit": null
+                    "unit": null
                 }
             }
         }
@@ -128,7 +138,31 @@ describe('Test POST stel', () => {
                 }
             }
         }
-    }
+    };
+
+    const glucoseData = {
+        "id": "35263822-7b2e-4683-8720-d31ffb12149b",
+        "meta": {
+            "schemaVersion": "stel-v2.0"
+        },
+        "hubId": "ABCDE12345",
+        "transmissionTime": "2021-11-29T16:18:10+00:00",
+        "device": {
+            "mac": "AB:CD:EF:12:34:5E",
+            "make": null,
+            "model": "BP Cuff"
+        },
+        "measure": {
+            "type": "glucose",
+            "time": "2021-11-29T16:18:10+00:00",
+            "data": {
+                "glucose": {
+                    "value": 111,
+                    "unit": "mg/dL"
+                }
+            }
+        }
+    };
 
     test('POST BP -- It should respond with test code 201 success', async () => {
         const response = await request(app)
@@ -137,41 +171,41 @@ describe('Test POST stel', () => {
             .expect('Content-Type', /json/)
             .expect(201);
 
-        expect(response.body).toStrictEqual( {
+        expect(response.body).toStrictEqual({
             "id": "35263822-7b2e-4683-8720-d31ffb12149b",
             "meta": {
-              "schemaVersion": "stel-v2.0"
+                "schemaVersion": "stel-v2.0"
             },
             "hubId": "ABCDE12345",
             "transmissionTime": "2021-11-29T16:18:10+00:00",
             "device": {
-              "mac": "AB:CD:EF:12:34:5E",
-              "make": null,
-              "model": "BP Cuff"
+                "mac": "AB:CD:EF:12:34:5E",
+                "make": null,
+                "model": "BP Cuff"
             },
             "measure": {
-              "type": "bloodpressure",
-              "time": "2021-11-29T16:18:10+00:00",
-              "data": {
-                "heartRate": {
-                  "value": 100,
-                  "unit": "bpm"
-                },
-                "systolic": {
-                  "value": 200,
-                  "unit": "mmHg"
-                },
-                "diastolic": {
-                  "value": 72,
-                  "unit": "mmHg"
-                },
-                "irregularPulse": {
-                  "value": true,
-                  "unit": null
+                "type": "bloodpressure",
+                "time": "2021-11-29T16:18:10+00:00",
+                "data": {
+                    "heartRate": {
+                        "value": 100,
+                        "unit": "bpm"
+                    },
+                    "systolic": {
+                        "value": 200,
+                        "unit": "mmHg"
+                    },
+                    "diastolic": {
+                        "value": 72,
+                        "unit": "mmHg"
+                    },
+                    "irregularPulse": {
+                        "value": true,
+                        "unit": null
+                    }
                 }
-              }
             }
-          })
+        })
     });
 
     test('POST EKG -- It should respond with test code 201 success', async () => {
@@ -199,86 +233,82 @@ describe('Test POST stel', () => {
                 "data": {
                     "irregularPulse": {
                         "value": true,
-                      "unit": null
+                        "unit": null
                     }
                 }
             }
         })
     });
 
-    test('POST SpO2 -- It should respond with test code 201 success', async () => {
+    test('POST glucose -- It should respond with test code 201 success', async () => {
         const response = await request(app)
             .post('/stel')
-            .send(spo2Data)
+            .send(glucoseData)
             .expect('Content-Type', /json/)
             .expect(201);
 
-            expect(response.body).toStrictEqual({
-                "id": "35263822-7b2e-4683-8720-d31ffb1214s9",
-                "meta": {
-                    "schemaVersion": "stel-v2.0"
-                },
-                "hubId": "ABCDE12345",
-                "transmissionTime": "2021-11-29T16:18:10+00:00",
-                "device": {
-                    "mac": "AB:CD:EF:12:34:E2",
-                    "make": null,
-                    "model": null
-                },
-                "measure": {
-                    "type": "pulseox",
-                    "time": "2021-11-29T16:18:10+00:00",
-                    "data": {
-                        "spo2": {
-                            "value": 100,
-                            "unit": "%"
-                        },
-                        "heartRate": {
-                            "value": 100,
-                            "unit": "bpm"
-                        }
+        expect(response.body).toStrictEqual({
+            "id": "35263822-7b2e-4683-8720-d31ffb12149b",
+            "meta": {
+                "schemaVersion": "stel-v2.0"
+            },
+            "hubId": "ABCDE12345",
+            "transmissionTime": "2021-11-29T16:18:10+00:00",
+            "device": {
+                "mac": "AB:CD:EF:12:34:5E",
+                "make": null,
+                "model": "BP Cuff"
+            },
+            "measure": {
+                "type": "glucose",
+                "time": "2021-11-29T16:18:10+00:00",
+                "data": {
+                    "glucose": {
+                        "value": 111,
+                        "unit": "mg/dL"
                     }
                 }
-            });
+            }
+        });
     });
 });
 
 describe('Test POST stel Bad Data', () => {
-    const bloodPressureDataHighBP =  {
+    const bloodPressureDataHighBP = {
         "id": "35263822-7b2e-4683-8720-d31ffb12149b",
         "meta": {
-          "schemaVersion": "stel-v2.0"
+            "schemaVersion": "stel-v2.0"
         },
         "hubId": "ABCDE12345",
         "transmissionTime": "2021-11-29T16:18:10+00:00",
         "device": {
-          "mac": "AB:CD:EF:12:34:5E",
-          "make": null,
-          "model": "BP Cuff"
+            "mac": "AB:CD:EF:12:34:5E",
+            "make": null,
+            "model": "BP Cuff"
         },
         "measure": {
-          "type": "bloodpressure",
-          "time": "2021-11-29T16:18:10+00:00",
-          "data": {
-            "heartRate": {
-              "value": 100,
-              "unit": "bpm"
-            },
-            "systolic": {
-              "value": 2000,
-              "unit": "mmHg"
-            },
-            "diastolic": {
-              "value": 72,
-              "unit": "mmHg"
-            },
-            "irregularPulse": {
-              "value": true,
-              "unit": null
+            "type": "bloodpressure",
+            "time": "2021-11-29T16:18:10+00:00",
+            "data": {
+                "heartRate": {
+                    "value": 100,
+                    "unit": "bpm"
+                },
+                "systolic": {
+                    "value": 2000,
+                    "unit": "mmHg"
+                },
+                "diastolic": {
+                    "value": 72,
+                    "unit": "mmHg"
+                },
+                "irregularPulse": {
+                    "value": true,
+                    "unit": null
+                }
             }
-          }
         }
-      };
+    };
 
     const ekgDataNoTransmissionTime = {
         "id": "35263822-7b2e-4683-8720-d31ffb12149b",
@@ -286,7 +316,7 @@ describe('Test POST stel Bad Data', () => {
             "schemaVersion": "stel-v2.0"
         },
         "hubId": "ABCDE12345",
-        
+
         "device": {
             "mac": "AB:CD:EF:12:34:5E",
             "make": null,
@@ -298,7 +328,7 @@ describe('Test POST stel Bad Data', () => {
             "data": {
                 "irregularPulse": {
                     "value": true,
-                  "unit": null
+                    "unit": null
                 }
             }
         }
@@ -330,7 +360,31 @@ describe('Test POST stel Bad Data', () => {
                 }
             }
         }
-    }
+    };
+
+    const glucoseDataHigh = {
+        "id": "35263822-7b2e-4683-8720-d31ffb12149b",
+        "meta": {
+            "schemaVersion": "stel-v2.0"
+        },
+        "hubId": "ABCDE12345",
+        "transmissionTime": "2021-11-29T16:18:10+00:00",
+        "device": {
+            "mac": "AB:CD:EF:12:34:5E",
+            "make": null,
+            "model": "BP Cuff"
+        },
+        "measure": {
+            "type": "glucose",
+            "time": "2021-11-29T16:18:10+00:00",
+            "data": {
+                "glucose": {
+                    "value": 11111,
+                    "unit": "mg/dL"
+                }
+            }
+        }
+    };
 
     test('POST BP -- It should respond with test code 400 High BP', async () => {
         const response = await request(app)
@@ -339,7 +393,7 @@ describe('Test POST stel Bad Data', () => {
             .expect('Content-Type', /json/)
             .expect(400);
 
-        expect(response.body).toStrictEqual( {
+        expect(response.body).toStrictEqual({
             "result": "\"systolic.value\" must be less than or equal to 300"
         })
     });
@@ -363,8 +417,20 @@ describe('Test POST stel Bad Data', () => {
             .expect('Content-Type', /json/)
             .expect(400);
 
-            expect(response.body).toStrictEqual({
-                "result": "\"device.mac\" with value \"AB:CD:EF:12:34:E\" fails to match the required pattern: /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/"
-            });
+        expect(response.body).toStrictEqual({
+            "result": "\"device.mac\" with value \"AB:CD:EF:12:34:E\" fails to match the required pattern: /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/"
+        });
+    });
+
+    test('POST glucose -- It should respond with test code 400 and Value should bve less', async () => {
+        const response = await request(app)
+            .post('/stel')
+            .send(glucoseDataHigh)
+            .expect('Content-Type', /json/)
+            .expect(400);
+
+        expect(response.body).toStrictEqual({
+            "result": "\"glucose.value\" must be less than or equal to 1000"
+        });
     });
 });

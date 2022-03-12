@@ -1,11 +1,9 @@
-const {
-    addStelBloodPressures,
-} = require('./stel/stel.model.bp');
 
-//const convertData = require('../utils/dataConversion');
 const { flattenJSON } = require('../utils/utils');
-const { addStelSpo2s } = require('./stel/stel.model.spo2');
+const { addStelBloodPressures } = require('./stel/stel.model.bp');
 const { addStelEKGs } = require('./stel/stel.model.ekg');
+const { addStelSpo2s } = require('./stel/stel.model.spo2');
+const { addStelGlucoseMeasurements } = require('./stel/stel.model.glucose');
 
 
 const stelMeasurements = new Map();
@@ -26,7 +24,11 @@ function receiveStelMeasurements(data) {
             addStelSpo2s(data);
             break;
         case "ekg":
-            addStelEKGs(data)
+            addStelEKGs(data);
+            break;
+        case "glucose":
+            addStelGlucoseMeasurements(data);
+            break;
     }
 
     stelMeasurements.set(latestMeasurement,
@@ -36,7 +38,6 @@ function receiveStelMeasurements(data) {
             }
         ));
 }
-
 
 function getAllStelMeasurements() {
     return Array.from(stelMeasurements.values());

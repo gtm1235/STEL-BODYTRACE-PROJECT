@@ -1,7 +1,8 @@
 const Joi = require('joi');
 const validateBp = require('./bp.validate');
-const validateEKG = require('./ekg.validate')
-const validateSpO2 = require('./pulseox.validate')
+const validateEKG = require('./ekg.validate');
+const validateSpO2 = require('./pulseox.validate');
+const validateGlucose = require('./glucose.validate');
 
 function generalStelSchemaValidation(data) {
   const measurementData = data.measure.data;
@@ -83,7 +84,8 @@ function generalStelSchemaValidation(data) {
       return returnValueEKG;
       break;
     case "glucose":
-      console.log(3);
+      const returnValueGlucose = validateGlucose(measurementData);
+      return returnValueGlucose;
       break;
     case "inr":
       console.log(34);
