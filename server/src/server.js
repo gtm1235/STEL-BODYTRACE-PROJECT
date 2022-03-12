@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8000;
 const server = http.createServer(app);
 
 //forces data to load before allowing any listen calls
-//cannot just use await due to require import must directky call async function
+//cannot just use await due to require import must directly call async function
 async function startServer() {
     //await loadPlanetData();
 

@@ -20,7 +20,7 @@ app.use('/stel', stelRouter);
 //app.use('/launches', launchesRouter);
 /*
 because we have client side routing we add the *
-it matches any endpoint that isnt matched above
+it matches any endpoint that isn't matched above
 is is passed to react index html to handle routing
 */
 app.get('/', (req, res) => {

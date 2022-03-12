@@ -5,6 +5,7 @@ const {
 //const convertData = require('../utils/dataConversion');
 const { flattenJSON } = require('../utils/utils');
 const { addStelSpo2s } = require('./stel/stel.model.spo2');
+const { addStelEKGs } = require('./stel/stel.model.ekg');
 
 
 const stelMeasurements = new Map();
@@ -24,6 +25,8 @@ function receiveStelMeasurements(data) {
         case "pulseox":
             addStelSpo2s(data);
             break;
+        case "ekg":
+            addStelEKGs(data)
     }
 
     stelMeasurements.set(latestMeasurement,
