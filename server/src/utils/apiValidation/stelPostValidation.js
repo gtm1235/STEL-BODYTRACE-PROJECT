@@ -3,6 +3,7 @@ const validateBp = require('./bp.validate');
 const validateEKG = require('./ekg.validate');
 const validateSpO2 = require('./pulseox.validate');
 const validateGlucose = require('./glucose.validate');
+const validateINR = require('./inr.validate');
 
 function generalStelSchemaValidation(data) {
   const measurementData = data.measure.data;
@@ -88,7 +89,8 @@ function generalStelSchemaValidation(data) {
       return returnValueGlucose;
       break;
     case "inr":
-      console.log(34);
+      const returnValueINR = validateINR(measurementData);
+      return returnValueINR;
       break;
     case "pillcap":
       console.log(5);
@@ -129,24 +131,24 @@ const dataBP = {
     "model": "BP Cuff"
   },
   "measure": {
-    "type": "bloodpressure",
+    "type": "inr",
     "time": "2021-11-29T16:18:10+00:00",
     "data": {
-      "heartRate": {
-        
-        "unit": "bpm"
+      "inr": {
+        "value": 2.4,
+        "unit": null
       },
-      "systolic": {
-        "value": 128,
-        "unit": "mmHg"
+      "pt": {
+          "value": 1.327,
+          "unit": "secs"  
       },
-      "diastolic": {
-        "value": 72,
-        "unit": "mmHg"
+      "control": {
+          "value": "high",
+          "unit": null 
       },
-      "irregularPulse": {
-        "value": true,
-        "unit": null,
+      "status": {
+          "value": "pass",
+          "unit": null
       }
     }
   }

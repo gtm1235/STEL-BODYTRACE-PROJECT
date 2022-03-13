@@ -4,6 +4,7 @@ const { addStelBloodPressures } = require('./stel/stel.model.bp');
 const { addStelEKGs } = require('./stel/stel.model.ekg');
 const { addStelSpo2s } = require('./stel/stel.model.spo2');
 const { addStelGlucoseMeasurements } = require('./stel/stel.model.glucose');
+const { addStelINRs } = require('./stel/stel.model.inr');
 
 
 const stelMeasurements = new Map();
@@ -28,6 +29,9 @@ function receiveStelMeasurements(data) {
             break;
         case "glucose":
             addStelGlucoseMeasurements(data);
+            break;
+        case "inr":
+            addStelINRs(data);
             break;
     }
 

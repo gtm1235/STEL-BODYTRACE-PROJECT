@@ -68,12 +68,12 @@ function convertDataINR(data) {
     const generalData = generalDataJSON(data);
     return {
         generalData,
-        inr: data.measure.data.heartRate.value,
-        //INRRateUnits: data.measure.data.heartRate.unit,
+        inr: data.measure.data.inr.value,
+        inrUnits: data.measure.data.inr.unit,
         pt: data.measure.data.pt.value,
         ptUnits: data.measure.data.pt.unit,
-        control: data.measure.data.control.value,
-        status: data.measure.data.status.value,
+        inrControl: data.measure.data.control.value,
+        inrStatus: data.measure.data.status.value,
     };
 }
 
