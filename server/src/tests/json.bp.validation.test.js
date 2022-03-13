@@ -73,12 +73,12 @@ describe('Test Validation Script', () => {
 
     test('BP Irregular Pulse Value Invalid-- It should respond with must be Boolean', () => {
         const validationBP = generalStelSchemaValidation(measurementDataBPIrregularPulseValueInvalid);
-        expect(validationBP).toBe("\"irregularPulse.value\" must be a boolean");
+        expect(validationBP).toBe("\"irregularPulse.value\" must be one of a boolean");
     });
 
     test('BP Irregular Pulse Unit Invalid-- It should respond with must be null', () => {
         const validationBP = generalStelSchemaValidation(measurementDataBPIrregularPulseUnitInvalid);
-        expect(validationBP).toBe("\"irregularPulse.unit\" must be [null]");
+        expect(validationBP).toBe( "\"irregularPulse.unit\" must be [null]");
     });
 
 });

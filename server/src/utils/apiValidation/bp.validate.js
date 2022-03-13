@@ -35,10 +35,10 @@ function validateBp(measurementData) {
                 .required()
         },
 
-        "irregularPulse": {
-            "value": Joi.boolean(),
+        "irregularPulse": Joi.object({
+            "value": Joi.alternatives().try(Joi.boolean()),
             "unit": Joi.valid(null)
-        }
+        }).optional()
 
     })
     const { error, value } = bpSchema.validate(measurementData)

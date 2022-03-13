@@ -24,6 +24,11 @@ function generalDataJSON(data) {
 
 function convertDataBloodPressure(data) {
     const generalData = generalDataJSON(data);
+    if (!data.measure.data.irregularPulse) {
+        data.measure.data.irregularPulse = {};
+        data.measure.data.irregularPulse.value = null;
+        data.measure.data.irregularPulse.unit = null;
+    };
     return {
         generalData,
         bpHeartRate: data.measure.data.heartRate.value,
@@ -64,8 +69,30 @@ function convertDataGlucose(data) {
     };
 }
 
+/*
+Handling Optional keys in post from Stel.  INR post may have INR, Control, and status
+information, keys may or may not be present, JOI validation handles some info.  
+Preparing data for entry into SQL DB
+*/
 function convertDataINR(data) {
     const generalData = generalDataJSON(data);
+    if (!data.measure.data.inr) {
+        data.measure.data.inr = {};
+        data.measure.data.inr.value = null;
+        data.measure.data.inr.unit = null;
+    };
+
+    if (!data.measure.data.control) {
+        data.measure.data.control = {};
+        data.measure.data.control.value = null;
+        data.measure.data.control.unit = null;
+    };
+
+    if (!data.measure.data.status) {
+        data.measure.data.status = {};
+        data.measure.data.status.value = null;
+        data.measure.data.status.unit = null;
+    };
     return {
         generalData,
         inr: data.measure.data.inr.value,

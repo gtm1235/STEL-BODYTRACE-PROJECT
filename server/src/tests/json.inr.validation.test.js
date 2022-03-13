@@ -24,7 +24,7 @@ describe('Test Validation Script', () => {
         expect(validationINR).toBe("\"inr.value\" must be greater than or equal to 0");
     });
 
-    test('INR Value Invalid-- It should respond with greater than 0', () => {
+    test('INR Value Invalid-- It should respond with required', () => {
         const validationINR = generalStelSchemaValidation(measurementDataINRInvalid);
         expect(validationINR).toBe("\"inr.value\" must be a number");
     });
@@ -274,7 +274,7 @@ const measurementDataINRInvalid = {
         "time": "2021-11-29T16:18:10+00:00",
         "data": {
             "inr": {
-                "value": null,
+                "value": "",
                 "unit": null
             },
             "pt": {
