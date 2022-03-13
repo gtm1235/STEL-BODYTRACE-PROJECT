@@ -104,8 +104,9 @@ function convertDataINR(data) {
     };
 }
 
-function convertDataPillBottle(data) {
+function convertDataPillCap(data) {
     const generalData = generalDataJSON(data);
+    data.measure.data = {};
     return {
         generalData,
         data: data.measure.data,
@@ -164,7 +165,7 @@ module.exports = {
     convertDataEKG,
     convertDataGlucose,
     convertDataINR,
-    convertDataPillBottle,
+    convertDataPillCap,
     convertDataSpirometer,
     convertDataTemperature,
     convertDataWearable,

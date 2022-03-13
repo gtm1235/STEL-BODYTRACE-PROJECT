@@ -4,6 +4,7 @@ const validateEKG = require('./ekg.validate');
 const validateSpO2 = require('./pulseox.validate');
 const validateGlucose = require('./glucose.validate');
 const validateINR = require('./inr.validate');
+const validatePillCap = require('./pillcap.validate')
 
 function generalStelSchemaValidation(data) {
   const measurementData = data.measure.data;
@@ -93,7 +94,8 @@ function generalStelSchemaValidation(data) {
       return returnValueINR;
       break;
     case "pillcap":
-      console.log(5);
+      const returnValuePillCap = validatePillCap(measurementData);
+      return returnValuePillCap;
       break;
     case "pulseox":
       const returnValueSpO2 = validateSpO2(measurementData);
@@ -118,41 +120,41 @@ function generalStelSchemaValidation(data) {
 
 
 
-const dataBP = {
-  "id": "35263822-7b2e-4683-8720-d31ffb12149b",
-  "meta": {
-    "schemaVersion": "stel-v2.0"
-  },
-  "hubId": "ABCDE12345",
-  "transmissionTime": "2021-11-29T16:18:10+00:00",
-  "device": {
-    "mac": "AB:CD:EF:12:34:5E",
-    "make": null,
-    "model": "BP Cuff"
-  },
-  "measure": {
-    "type": "inr",
-    "time": "2021-11-29T16:18:10+00:00",
-    "data": {
-      "inr": {
-        "value": 2.4,
-        "unit": null
-      },
-      "pt": {
-          "value": 1.327,
-          "unit": "secs"  
-      },
-      "control": {
-          "value": "high",
-          "unit": null 
-      },
-      "status": {
-          "value": "pass",
-          "unit": null
-      }
-    }
-  }
-}
+// const dataBP = {
+//   "id": "35263822-7b2e-4683-8720-d31ffb12149b",
+//   "meta": {
+//     "schemaVersion": "stel-v2.0"
+//   },
+//   "hubId": "ABCDE12345",
+//   "transmissionTime": "2021-11-29T16:18:10+00:00",
+//   "device": {
+//     "mac": "AB:CD:EF:12:34:5E",
+//     "make": null,
+//     "model": "BP Cuff"
+//   },
+//   "measure": {
+//     "type": "inr",
+//     "time": "2021-11-29T16:18:10+00:00",
+//     "data": {
+//       "inr": {
+//         "value": 2.4,
+//         "unit": null
+//       },
+//       "pt": {
+//           "value": 1.327,
+//           "unit": "secs"  
+//       },
+//       "control": {
+//           "value": "high",
+//           "unit": null 
+//       },
+//       "status": {
+//           "value": "pass",
+//           "unit": null
+//       }
+//     }
+//   }
+// }
 
 // const result = generalStelSchemaValidation(dataBP);
 // console.log(result)

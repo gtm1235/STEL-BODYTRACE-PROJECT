@@ -8,7 +8,8 @@ const { getAllStelBloodPressures } = require('../../models/stel/stel.model.bp');
 const { getAllStelSpo2s } = require('../../models/stel/stel.model.spo2');
 const { getAllStelEKGs } = require('../../models/stel/stel.model.ekg');
 const { getAllStelGlucoseMeasurements } = require('../../models/stel/stel.model.glucose');
-const { getAllStelINRs } = require('../../models/stel/stel.model.inr')
+const { getAllStelINRs } = require('../../models/stel/stel.model.inr');
+const { getAllStelPillCapMeasurements } = require('../../models/stel/stel.model.pill');
 
 function httpReceiveStelMeasurements(req, res) {
     const measurement = req.body;
@@ -29,26 +30,30 @@ function httpReceiveStelMeasurements(req, res) {
 
 function httpGetAllStelMeasurements(req, res) {
     return res.status(200).json(getAllStelMeasurements());
-}
+};
 
 function httpGetAllStelBloodPressures(req, res) {
     return res.status(200).json(getAllStelBloodPressures());
-}
+};
 
 function httpGetAllStelSpo2s(req, res) {
     return res.status(200).json(getAllStelSpo2s());
-}
+};
 
 function httpGetAllStelEKGs(req, res) {
     return res.status(200).json(getAllStelEKGs());
-}
+};
 
 function httpGetAllStelGlucoseMeasurements(req, res) {
     return res.status(200).json(getAllStelGlucoseMeasurements());
-}
+};
 
 function httpGetAllStelINRs(req, res) {
     return res.status(200).json(getAllStelINRs());
+};
+
+function httpGetAllStelPillCapMeasurements(req, res) {
+    return res.status(200).json(getAllStelPillCapMeasurements());
 }
 
 module.exports = {
@@ -58,5 +63,6 @@ module.exports = {
     httpGetAllStelSpo2s,
     httpGetAllStelEKGs,
     httpGetAllStelGlucoseMeasurements,
-    httpGetAllStelINRs
+    httpGetAllStelINRs,
+    httpGetAllStelPillCapMeasurements,
 };

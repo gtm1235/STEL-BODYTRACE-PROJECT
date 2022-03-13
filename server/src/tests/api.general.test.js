@@ -66,6 +66,16 @@ describe('Test GET /stel/inr data', () => {
     });
 });
 
+describe('Test GET /stel/pillcap data', () => {
+    test('It should respond with a 200 success', async () => {
+        const response = await request(app)
+            .get('/stel/pillcap')
+            .expect('Content-Type', /json/)
+            .expect(200);
+        //expect(response.statusCode).toBe(200);
+    });
+});
+
 
 /*
 POST TESTING VALID BELOW -- Note that extensive validation is done with in validation.test.js
@@ -221,6 +231,25 @@ describe('Test POST stel', () => {
         }
     };
 
+    const pillCapData = {
+        "id": "35263822-7b2e-4683-8720-d31ffb12149b",
+        "meta": {
+            "schemaVersion": "stel-v2.0"
+        },
+        "hubId": "ABCDE12345",
+        "transmissionTime": "2021-11-29T16:18:10+00:00",
+        "device": {
+            "mac": "AB:CD:EF:12:34:5E",
+            "make": null,
+            "model": "BP Cuff"
+        },
+        "measure": {
+            "type": "pillcap",
+            "time": "2021-11-29T16:18:10+00:00",
+            "data": {}
+        }
+    };
+
 
     test('POST BP -- It should respond with test code 201 success', async () => {
         const response = await request(app)
@@ -370,6 +399,33 @@ describe('Test POST stel', () => {
                         "unit": null
                     }
                 }
+            }
+        });
+    });
+
+    test('POST pillcap -- It should respond with test code 201 success', async () => {
+        const response = await request(app)
+            .post('/stel')
+            .send(pillCapData)
+            .expect('Content-Type', /json/)
+            .expect(201);
+
+        expect(response.body).toStrictEqual({
+            "id": "35263822-7b2e-4683-8720-d31ffb12149b",
+            "meta": {
+                "schemaVersion": "stel-v2.0"
+            },
+            "hubId": "ABCDE12345",
+            "transmissionTime": "2021-11-29T16:18:10+00:00",
+            "device": {
+                "mac": "AB:CD:EF:12:34:5E",
+                "make": null,
+                "model": "BP Cuff"
+            },
+            "measure": {
+                "type": "pillcap",
+                "time": "2021-11-29T16:18:10+00:00",
+                "data": {}
             }
         });
     });
@@ -528,6 +584,25 @@ describe('Test POST stel Bad Data', () => {
         }
     };
 
+    const pillCapDataMissing = {
+        "id": "35263822-7b2e-4683-8720-d31ffb12149b",
+        "meta": {
+            "schemaVersion": "stel-v2.0"
+        },
+        "hubId": "ABCDE12345",
+        "transmissionTime": "2021-11-29T16:18:10+00:00",
+        "device": {
+            "mac": "AB:CD:EF:12:34:5E",
+            "make": null,
+            "model": "BP Cuff"
+        },
+        "measure": {
+            "type": "pillcap",
+            "time": "2021-11-29T16:18:10+00:00",
+        }
+    };
+
+
     test('POST Bad BP -- It should respond with test code 400 High BP', async () => {
         const response = await request(app)
             .post('/stel')
@@ -585,6 +660,18 @@ describe('Test POST stel Bad Data', () => {
 
         expect(response.body).toStrictEqual({
             "result": "\"unit\" missing required peer \"value\""
+        });
+    });
+
+    test('POST Pill Cap Object Missing -- It should respond with test code 400 and Object required', async () => {
+        const response = await request(app)
+            .post('/stel')
+            .send(pillCapDataMissing)
+            .expect('Content-Type', /json/)
+            .expect(400);
+
+        expect(response.body).toStrictEqual({
+            "result": "\"measure.data\" is required"
         });
     });
 });
