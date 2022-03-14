@@ -4,8 +4,34 @@ const validateEKG = require('./ekg.validate');
 const validateSpO2 = require('./pulseox.validate');
 const validateGlucose = require('./glucose.validate');
 const validateINR = require('./inr.validate');
-const validatePillCap = require('./pillcap.validate')
+const validatePillCap = require('./pillcap.validate');
+const validateSpirometry = require('./spirometry.validate');
+const validateTemperature = require('./temperature.validate')
 
+
+/*
+JOI Validation script is for JSON General Data Object Below
+** NOTE ** Optionals also TODO: update ranges appropriately
+
+{
+  "id": "35263822-7b2e-4683-8720-d31ffb12149b",
+  "meta": {
+    "schemaVersion": "stel-v2.0"
+  },
+  "hubId": "ABCDE12345",
+  "transmissionTime": "2021-11-29T16:18:10+00:00",
+  "device": {
+    "mac": "AB:CD:EF:12:34:56",
+    "make": "A&D"|null,
+    "model": "BP Cuff"|null
+  },
+  "measure": {
+  "type": "bloodpressure",
+  "time": "2021-11-29T16:18:10+00:00"
+  }
+}
+
+*/
 function generalStelSchemaValidation(data) {
   const measurementData = data.measure.data;
   //console.log(measurementData);
@@ -75,6 +101,9 @@ function generalStelSchemaValidation(data) {
   })
 
   const { error, value } = generalStelSchema.validate(data)
+ 
+  // If General Data validation returns undefined or correct validation script moves on
+  // to validation for specific measurements
 
   if (error != undefined) {
     return error.details[0].message
@@ -105,8 +134,9 @@ function generalStelSchemaValidation(data) {
       const returnValueSpO2 = validateSpO2(measurementData);
       return returnValueSpO2;
       break;
-    case "spirometetry":
-      console.log(7);
+    case "spirometry":
+      const returnValueSpirometry = validateSpirometry(measurementData);
+      return returnValueSpirometry;
       break;
     case "temperature":
       console.log(8);
@@ -117,7 +147,6 @@ function generalStelSchemaValidation(data) {
     case "weight":
       console.log(10);
       break;
-
   }
 }
 

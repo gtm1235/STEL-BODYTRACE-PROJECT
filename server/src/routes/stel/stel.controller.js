@@ -11,6 +11,7 @@ const { getAllStelGlucoseMeasurements } = require('../../models/stel/stel.model.
 const { getAllStelINRs } = require('../../models/stel/stel.model.inr');
 const { getAllStelPillCapMeasurements } = require('../../models/stel/stel.model.pill');
 const { getAllStelSpirometrys } = require('../../models/stel/stel.model.spirometer')
+const { getAllStelTemperatures } = require('../../models/stel/stel.model.temperature')
 
 function httpReceiveStelMeasurements(req, res) {
     const measurement = req.body;
@@ -61,6 +62,10 @@ function httpGetAllStelSpirometrys(req, res) {
     return res.status(200).json(getAllStelSpirometrys());
 };
 
+function httpGetAllStelTemperatures(req, res) {
+    return res.status(200).json(getAllStelTemperatures());
+};
+
 module.exports = {
     httpReceiveStelMeasurements,
     httpGetAllStelMeasurements,
@@ -71,4 +76,5 @@ module.exports = {
     httpGetAllStelINRs,
     httpGetAllStelPillCapMeasurements,
     httpGetAllStelSpirometrys,
+    httpGetAllStelTemperatures,
 };

@@ -1,5 +1,21 @@
 const Joi = require('joi');
 
+/*
+JOI Validation script is for JSON Pulse Oximetry Object Below
+** NOTE ** Optionals also TODO: update ranges appropriately
+
+ "data": {
+    "spo2": {
+      "value": 96,
+      "unit": "%"
+    },
+    "heartRate": {
+        "value": 87,
+        "unit": "bpm"
+    }
+  }
+*/
+
 function validateSpO2(measurementData) {
     const SpO2Schema = Joi.object({
         "spo2": {

@@ -1,6 +1,30 @@
 const { optional } = require('joi');
 const Joi = require('joi');
 
+/*
+JOI Validation script is for JSON INR Object Below
+** NOTE ** Optionals also TODO: update ranges appropriately
+
+ "data": {
+    Optional["inr"]: {
+      "value": 2.4,
+      "unit": null
+    },
+    "pt": {
+        "value": 1.327,
+        "unit": "secs"  
+    },
+    Optional["control"]: {
+        "value": "high|low",
+        "unit": null 
+    },
+    Optional["status"]: {
+        "value": "pass|fail",
+        "unit": null
+    }
+  }
+*/
+
 function validateINR(measurementData) {
     const INRSchema = Joi.object({
         "inr": Joi.object({

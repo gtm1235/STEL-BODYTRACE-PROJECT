@@ -29,7 +29,7 @@ function convertDataBloodPressure(data) {
         data.measure.data.irregularPulse.value = null;
         data.measure.data.irregularPulse.unit = null;
     };
-    return {
+    return flattenJSON({
         generalData,
         bpHeartRate: data.measure.data.heartRate.value,
         bpHeartRateUnits: data.measure.data.heartRate.unit,
@@ -37,36 +37,36 @@ function convertDataBloodPressure(data) {
         DiastolicBp: data.measure.data.diastolic.value,
         bpUnits: data.measure.data.diastolic.unit,
         bpIrregularPulse: data.measure.data.irregularPulse.value,
-    };
+    });
 }
 
 function convertDataSpo2(data) {
     const generalData = generalDataJSON(data);
-    return {
+    return flattenJSON({
         generalData,
         spo2HeartRate: data.measure.data.heartRate.value,
         spo2HeartRateUnits: data.measure.data.heartRate.unit,
         spo2: data.measure.data.spo2.value,
         spo2Units: data.measure.data.spo2.unit,
-    };
+    });
 }
 
 function convertDataEKG(data) {
     const generalData = generalDataJSON(data);
-    return {
+    return flattenJSON({
         generalData,
         ekgIrregularPulse: data.measure.data.irregularPulse.value,
         ekgIrregularPulseUnits: data.measure.data.irregularPulse.unit,
-    };
+    });
 }
 
 function convertDataGlucose(data) {
     const generalData = generalDataJSON(data);
-    return {
+    return flattenJSON({
         generalData,
         glucose: data.measure.data.glucose.value,
         glucoseUnits: data.measure.data.glucose.unit,
-    };
+    });
 }
 
 /*
@@ -93,7 +93,7 @@ function convertDataINR(data) {
         data.measure.data.status.value = null;
         data.measure.data.status.unit = null;
     };
-    return {
+    return flattenJSON({
         generalData,
         inr: data.measure.data.inr.value,
         inrUnits: data.measure.data.inr.unit,
@@ -101,21 +101,46 @@ function convertDataINR(data) {
         ptUnits: data.measure.data.pt.unit,
         inrControl: data.measure.data.control.value,
         inrStatus: data.measure.data.status.value,
-    };
+    });
 }
 
 function convertDataPillCap(data) {
     const generalData = generalDataJSON(data);
     data.measure.data = {};
-    return {
+    return flattenJSON({
         generalData,
         data: data.measure.data,
-    };
+    });
 }
 
-function convertDataSpirometer(data) {
+function convertDataSpirometry(data) {
     const generalData = generalDataJSON(data);
-    return {
+
+    if (!data.measure.data.fvc) {
+        data.measure.data.fvc = {};
+        data.measure.data.fvc.value = null;
+        data.measure.data.fvc.unit = null;
+    };
+
+    if (!data.measure.data.pef) {
+        data.measure.data.pef = {};
+        data.measure.data.pef.value = null;
+        data.measure.data.pef.unit = null;
+    };
+
+    if (!data.measure.data.fev6) {
+        data.measure.data.fev6 = {};
+        data.measure.data.fev6.value = null;
+        data.measure.data.fev6.unit = null;
+    };
+
+    if (!data.measure.data.fev1fev6) {
+        data.measure.data.fev1fev6 = {};
+        data.measure.data.fev1fev6.value = null;
+        data.measure.data.fev1fev6.unit = null;
+    };
+
+    return flattenJSON({
         generalData,
         fvc: data.measure.data.fvc.value,
         fvcUnits: data.measure.data.fvc.unit,
@@ -127,36 +152,36 @@ function convertDataSpirometer(data) {
         fev6Units: data.measure.data.fev6.unit,
         fev1fev6: data.measure.data.fev1fev6.value,
         fev1fev6Units: data.measure.data.fev1fev6.unit,
-    };
+    });
 }
 
 function convertDataTemperature(data) {
     const generalData = generalDataJSON(data);
-    return {
+    return flattenJSON({
         generalData,
         temperature: data.measure.data.temperature.value,
         temperatureUnits: data.measure.data.temperature.unit,
-    };
+    });
 }
 
 function convertDataWearable(data) {
     const generalData = generalDataJSON(data);
-    return {
+    return flattenJSON({
         generalData,
         steps: data.measure.data.steps.value,
         stepsUnits: data.measure.data.steps.unit,
         wearableHeartRate: data.measure.data.heartRate.value,
         wearableHeartRateUnits: data.measure.data.spo2.unit,
-    };
+    });
 }
 
 function convertDataWeight(data) {
     const generalData = generalDataJSON(data);
-    return {
+    return flattenJSON({
         generalData,
         weight: data.measure.data.weight.value,
         weightUnits: data.measure.data.weight.unit,
-    };
+    });
 }
 
 module.exports = {
@@ -166,7 +191,7 @@ module.exports = {
     convertDataGlucose,
     convertDataINR,
     convertDataPillCap,
-    convertDataSpirometer,
+    convertDataSpirometry,
     convertDataTemperature,
     convertDataWearable,
     convertDataWeight,

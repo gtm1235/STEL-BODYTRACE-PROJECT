@@ -1,5 +1,17 @@
 const Joi = require('joi');
 
+/*
+JOI Validation script is for JSON EKG Object Below
+** NOTE ** Optionals also TODO: update ranges appropriately
+
+"data": {
+    "irregularPulse": {
+      "value": true|false,
+      "unit": null
+    }
+  }
+*/
+
 function validateEKG(measurementData) {
     const EKGSchema = Joi.object({
         "irregularPulse": {

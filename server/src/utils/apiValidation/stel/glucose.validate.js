@@ -1,5 +1,18 @@
 const Joi = require('joi');
 
+/*
+JOI Validation script is for JSON Glucose Object Below
+** NOTE ** Optionals also TODO: update ranges appropriately
+
+  "data": {
+    "glucose": {
+        "value": 111,
+        "unit": "mg/dL"
+    }
+  }
+}
+*/
+
 function validateGlucose(measurementData) {
     const glucoseSchema = Joi.object({
         "glucose": {
