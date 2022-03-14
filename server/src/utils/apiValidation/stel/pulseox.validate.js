@@ -4,6 +4,7 @@ function validateSpO2(measurementData) {
     const SpO2Schema = Joi.object({
         "spo2": {
             "value": Joi.number()
+                .strict()
                 .min(0)
                 .max(100)
                 .required(),
@@ -15,11 +16,13 @@ function validateSpO2(measurementData) {
 
         "heartRate": {
             "value": Joi.number()
+                .strict()
                 .min(0)
                 .max(300)
                 .required(),
 
             "unit": Joi.string()
+                .strict()
                 .valid("bpm")
                 .required()
         },
@@ -32,15 +35,15 @@ function validateSpO2(measurementData) {
 }
 
 const measurementData = {
-      "spo2": {
+    "spo2": {
         "value": 96,
         "unit": "%"
-      },
-      "heartRate": {
-          "value": 87,
-          "unit": "bpm"
-      }
-    };
+    },
+    "heartRate": {
+        "value": 87,
+        "unit": "bpm"
+    }
+};
 
 // const result = validateSpO2(measurementData);
 // console.log(result);

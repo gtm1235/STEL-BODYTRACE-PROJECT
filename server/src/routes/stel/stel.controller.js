@@ -3,13 +3,14 @@ const {
     getAllStelMeasurements,
 } = require('../../models/stel.model');
 
-const generalStelSchemaValidation = require('../../utils/apiValidation/stelPostValidation');
+const generalStelSchemaValidation = require('../../utils/apiValidation/stel/stelPostValidation');
 const { getAllStelBloodPressures } = require('../../models/stel/stel.model.bp');
 const { getAllStelSpo2s } = require('../../models/stel/stel.model.spo2');
 const { getAllStelEKGs } = require('../../models/stel/stel.model.ekg');
 const { getAllStelGlucoseMeasurements } = require('../../models/stel/stel.model.glucose');
 const { getAllStelINRs } = require('../../models/stel/stel.model.inr');
 const { getAllStelPillCapMeasurements } = require('../../models/stel/stel.model.pill');
+const { getAllStelSpirometrys } = require('../../models/stel/stel.model.spirometer')
 
 function httpReceiveStelMeasurements(req, res) {
     const measurement = req.body;
@@ -54,7 +55,11 @@ function httpGetAllStelINRs(req, res) {
 
 function httpGetAllStelPillCapMeasurements(req, res) {
     return res.status(200).json(getAllStelPillCapMeasurements());
-}
+};
+
+function httpGetAllStelSpirometrys(req, res) {
+    return res.status(200).json(getAllStelSpirometrys());
+};
 
 module.exports = {
     httpReceiveStelMeasurements,
@@ -65,4 +70,5 @@ module.exports = {
     httpGetAllStelGlucoseMeasurements,
     httpGetAllStelINRs,
     httpGetAllStelPillCapMeasurements,
+    httpGetAllStelSpirometrys,
 };

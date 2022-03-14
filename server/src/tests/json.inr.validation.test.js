@@ -1,5 +1,5 @@
 const request = require('supertest');
-const generalStelSchemaValidation = require('../utils/apiValidation/stelPostValidation');
+const generalStelSchemaValidation = require('../utils/apiValidation/stel/stelPostValidation');
 
 
 describe('Test Validation Script', () => {

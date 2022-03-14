@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const validateBp = require('./bp.validate');
+const validateBp = require('../bp.validate');
 const validateEKG = require('./ekg.validate');
 const validateSpO2 = require('./pulseox.validate');
 const validateGlucose = require('./glucose.validate');
@@ -27,6 +27,7 @@ function generalStelSchemaValidation(data) {
 
     hubId: Joi.string()
       .alphanum()
+      .strict()
       .required(),
 
     transmissionTime: Joi.date()
@@ -48,6 +49,7 @@ function generalStelSchemaValidation(data) {
 
     measure: {
       "type": Joi.string()
+      .strict()
         .required()
         .valid(
           "bloodpressure",

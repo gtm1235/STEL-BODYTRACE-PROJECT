@@ -5,6 +5,7 @@ const { addStelSpo2s } = require('./stel/stel.model.spo2');
 const { addStelGlucoseMeasurements } = require('./stel/stel.model.glucose');
 const { addStelINRs } = require('./stel/stel.model.inr');
 const { addStelPillCapMeasurements } = require('./stel/stel.model.pill');
+const { addStelSpirometrys } = require('./stel/stel.model.spirometer');
 
 
 const stelMeasurements = new Map();
@@ -35,6 +36,9 @@ function receiveStelMeasurements(data) {
             break;
         case "pillcap":
             addStelPillCapMeasurements(data);
+            break;
+        case "spirometry":
+            addStelSpirometrys(data);
             break;
     }
 

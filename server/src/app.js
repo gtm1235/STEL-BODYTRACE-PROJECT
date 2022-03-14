@@ -4,6 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 const stelRouter = require('./routes/stel/stel.router');
+const bodytraceRouter = require('./routes/bodytrace/bodytrace.router');
 //const launchesRouter = require('./routes/launches/launches.router');
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
 app.use('/stel', stelRouter);
+app.use('/bodytrace', bodytraceRouter);
 //app.use('/launches', launchesRouter);
 /*
 because we have client side routing we add the *
