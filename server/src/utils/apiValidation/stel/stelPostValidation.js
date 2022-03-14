@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const validateBp = require('../bp.validate');
+const validateBp = require('./bp.validate');
 const validateEKG = require('./ekg.validate');
 const validateSpO2 = require('./pulseox.validate');
 const validateGlucose = require('./glucose.validate');
