@@ -4,6 +4,7 @@ function validateEKG(measurementData) {
     const EKGSchema = Joi.object({
         "irregularPulse": {
             "value": Joi.boolean()
+            .strict()
             .required(),
             "unit": Joi.valid(null)
             .required(),

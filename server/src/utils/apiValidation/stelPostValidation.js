@@ -13,6 +13,7 @@ function generalStelSchemaValidation(data) {
   const generalStelSchema = Joi.object({
     id: Joi.string()
       .length(36)
+      .strict()
       .required(),
 
     meta: Joi.object({})
@@ -20,7 +21,8 @@ function generalStelSchemaValidation(data) {
 
     meta: {
       schemaVersion: Joi.string()
-        .required()
+      .strict()
+      .required()
     },
 
     hubId: Joi.string()

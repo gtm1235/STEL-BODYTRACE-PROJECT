@@ -5,14 +5,14 @@ function validateINR(measurementData) {
     const INRSchema = Joi.object({
         "inr": Joi.object({
             "value": Joi.alternatives()
-            .try(Joi.number()
-                .strict()
-                .min(0)
-                .max(100)),
+                .try(Joi.number()
+                    .strict()
+                    .min(0)
+                    .max(100)),
 
             "unit": Joi.valid(null)
         }).optional().with('value', 'unit')
-        .with('unit', 'value'),
+            .with('unit', 'value'),
 
         "pt": {
             "value": Joi.number()
@@ -22,6 +22,7 @@ function validateINR(measurementData) {
                 .required(),
 
             "unit": Joi.string()
+                .strict()
                 .valid("secs")
                 .required()
         },
@@ -36,7 +37,7 @@ function validateINR(measurementData) {
             "value": Joi.valid("pass", "fail"),
             "unit": Joi.valid(null)
         }).optional().with('value', 'unit')
-        .with('unit', 'value'),
+            .with('unit', 'value'),
 
     })
     const { error, value } = INRSchema.validate(measurementData)

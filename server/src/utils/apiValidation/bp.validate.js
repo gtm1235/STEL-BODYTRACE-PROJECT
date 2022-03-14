@@ -4,7 +4,7 @@ function validateBp(measurementData) {
     const bpSchema = Joi.object({
         "heartRate": {
             "value": Joi.number()
-            .strict()
+                .strict()
                 .min(0)
                 .max(300)
                 .required(),
@@ -16,19 +16,20 @@ function validateBp(measurementData) {
 
         "systolic": {
             "value": Joi.number()
-            .strict()
+                .strict()
                 .min(40)
                 .max(300)
                 .required(),
 
             "unit": Joi.string()
+                .strict()
                 .valid("mmHg")
                 .required()
         },
 
         "diastolic": {
             "value": Joi.number()
-            .strict()
+                .strict()
                 .min(0)
                 .max(200)
                 .required(),
@@ -39,7 +40,7 @@ function validateBp(measurementData) {
         },
 
         "irregularPulse": Joi.object({
-            "value": Joi.alternatives().try(Joi.boolean()),
+            "value": Joi.alternatives().try(Joi.boolean().strict()),
             "unit": Joi.valid(null)
         }).optional()
 
