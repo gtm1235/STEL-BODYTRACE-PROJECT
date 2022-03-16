@@ -7,6 +7,8 @@ const { addStelINRs } = require('./stel/stel.model.inr');
 const { addStelPillCapMeasurements } = require('./stel/stel.model.pill');
 const { addStelSpirometrys } = require('./stel/stel.model.spirometer');
 const { addStelTemperatures } = require('./stel/stel.model.temperature');
+const { addStelWearableMeasurements } = require('./stel/stel.model.wearable');
+const { addStelWeights } = require('./stel/stel.model.weight');
 
 
 const stelMeasurements = new Map();
@@ -43,6 +45,12 @@ function receiveStelMeasurements(data) {
             break;
         case "temperature":
             addStelTemperatures(data);
+            break;
+        case "wearable":
+            addStelWearableMeasurements(data);
+            break;
+        case "weight":
+            addStelWeights(data);
             break;
     }
 

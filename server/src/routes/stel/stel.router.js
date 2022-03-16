@@ -11,6 +11,8 @@ const {
     httpGetAllStelPillCapMeasurements,
     httpGetAllStelSpirometrys,
     httpGetAllStelTemperatures,
+    httpGetAllStelWearableMeasurements,
+    httpGetAllStelWeights,
 } = require('./stel.controller');
 
 const stelRouter = express.Router();
@@ -25,5 +27,7 @@ stelRouter.get('/inr', httpGetAllStelINRs);
 stelRouter.get('/pillcap', httpGetAllStelPillCapMeasurements);
 stelRouter.get('/spirometry', httpGetAllStelSpirometrys);
 stelRouter.get('/temperature', httpGetAllStelTemperatures);
+stelRouter.get('/wearable', httpGetAllStelWearableMeasurements)
+stelRouter.get('/weights', httpGetAllStelWeights)
 
 module.exports = stelRouter;

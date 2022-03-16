@@ -6,7 +6,8 @@ const validateGlucose = require('./glucose.validate');
 const validateINR = require('./inr.validate');
 const validatePillCap = require('./pillcap.validate');
 const validateSpirometry = require('./spirometry.validate');
-const validateTemperature = require('./temperature.validate')
+const validateTemperature = require('./temperature.validate');
+const validateWearable = require('./wearable.validate');
 
 
 /*
@@ -139,10 +140,12 @@ function generalStelSchemaValidation(data) {
       return returnValueSpirometry;
       break;
     case "temperature":
-      console.log(8);
+      const returnValueTemperature = validateTemperature(measurementData);
+      return returnValueTemperature;
       break;
     case "wearable":
-      console.log(9);
+      const returnValueWearable = validateWearable(measurementData);
+      return returnValueWearable;
       break;
     case "weight":
       console.log(10);

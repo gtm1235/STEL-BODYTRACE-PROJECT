@@ -1,6 +1,6 @@
 const flattenJSON = (data = {}, res = {}, extraKey = '') => {
     for (key in data) {
-        if (typeof data[key] !== 'object') {
+        if (typeof data[key] !== 'object' || data[key] ==  null) {
             res[extraKey + key] = data[key];
         } else {
             flattenJSON(data[key], res, `${extraKey}${key}.`);
@@ -107,6 +107,7 @@ function convertDataINR(data) {
 function convertDataPillCap(data) {
     const generalData = generalDataJSON(data);
     data.measure.data = {};
+    
     return flattenJSON({
         generalData,
         data: data.measure.data,
@@ -128,16 +129,16 @@ function convertDataSpirometry(data) {
         data.measure.data.pef.unit = null;
     };
 
-    if (!data.measure.data.fev6) {
-        data.measure.data.fev6 = {};
-        data.measure.data.fev6.value = null;
-        data.measure.data.fev6.unit = null;
+    if (!data.measure.data.steps) {
+        data.measure.data.steps = {};
+        data.measure.data.steps.value = null;
+        data.measure.data.steps.unit = null;
     };
 
-    if (!data.measure.data.fev1fev6) {
-        data.measure.data.fev1fev6 = {};
-        data.measure.data.fev1fev6.value = null;
-        data.measure.data.fev1fev6.unit = null;
+    if (!data.measure.data.heartRate) {
+        data.measure.data.heartRate = {};
+        data.measure.data.heartRate.value = null;
+        data.measure.data.heartRate.unit = null;
     };
 
     return flattenJSON({
@@ -148,10 +149,10 @@ function convertDataSpirometry(data) {
         fev1Units: data.measure.data.fev1.unit,
         pef: data.measure.data.pef.value,
         pefUnits: data.measure.data.pef.unit,
-        fev6: data.measure.data.fev6.value,
-        fev6Units: data.measure.data.fev6.unit,
-        fev1fev6: data.measure.data.fev1fev6.value,
-        fev1fev6Units: data.measure.data.fev1fev6.unit,
+        steps: data.measure.data.steps.value,
+        stepsUnits: data.measure.data.steps.unit,
+        heartRate: data.measure.data.heartRate.value,
+        heartRateUnits: data.measure.data.heartRate.unit,
     });
 }
 
@@ -166,12 +167,26 @@ function convertDataTemperature(data) {
 
 function convertDataWearable(data) {
     const generalData = generalDataJSON(data);
+    console.log(data.measure.data.steps)
+    if (!data.measure.data.steps) {
+        data.measure.data.steps = {};
+        data.measure.data.steps.value = null;
+        data.measure.data.steps.unit = null;
+    };
+    console.log(data.measure.data.steps)
+
+    if (!data.measure.data.heartRate) {
+        data.measure.data.heartRate = {};
+        data.measure.data.heartRate.value = null;
+        data.measure.data.heartRate.unit = null;
+    };
+    console.log(flattenJSON(data));
     return flattenJSON({
         generalData,
         steps: data.measure.data.steps.value,
         stepsUnits: data.measure.data.steps.unit,
         wearableHeartRate: data.measure.data.heartRate.value,
-        wearableHeartRateUnits: data.measure.data.spo2.unit,
+        wearableHeartRateUnits: data.measure.data.heartRate.unit,
     });
 }
 

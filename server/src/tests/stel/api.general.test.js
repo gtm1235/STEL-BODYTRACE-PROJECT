@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../app');
+const app = require('../../app');
 
 /*
 Testing GET requests -- Basic testing Response codes and basic API Functionality.  Validation is done extensively

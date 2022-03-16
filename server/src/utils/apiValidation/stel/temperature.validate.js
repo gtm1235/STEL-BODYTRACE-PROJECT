@@ -16,8 +16,8 @@ JOI Validation script is for JSON Temperature Object Below
 */
 
 function validateTemperature(measurementData) {
-    const TemperatureSchema = Joi.object({
-        "Temperature": {
+    const temperatureSchema = Joi.object({
+        "temperature": {
             "value": Joi.number()
             .strict()
             .min(20)

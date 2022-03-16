@@ -10,10 +10,19 @@ const { getAllStelEKGs } = require('../../models/stel/stel.model.ekg');
 const { getAllStelGlucoseMeasurements } = require('../../models/stel/stel.model.glucose');
 const { getAllStelINRs } = require('../../models/stel/stel.model.inr');
 const { getAllStelPillCapMeasurements } = require('../../models/stel/stel.model.pill');
-const { getAllStelSpirometrys } = require('../../models/stel/stel.model.spirometer')
-const { getAllStelTemperatures } = require('../../models/stel/stel.model.temperature')
+const { getAllStelSpirometrys } = require('../../models/stel/stel.model.spirometer');
+const { getAllStelTemperatures } = require('../../models/stel/stel.model.temperature');
+const { getAllStelWearableMeasurements } = require('../../models/stel/stel.model.wearable');
+const { getAllStelWeights } = require('../../models/stel/stel.model.weight')
 
 function httpReceiveStelMeasurements(req, res) {
+    const header = req.header('Authorization');
+    console.log(header)
+    if (header != "Bearer 1234") {
+        return res.status(401).json({
+            "result": "Unauthorized",
+        })
+    }
     const measurement = req.body;
 
     //TODO: validation
@@ -66,6 +75,14 @@ function httpGetAllStelTemperatures(req, res) {
     return res.status(200).json(getAllStelTemperatures());
 };
 
+function httpGetAllStelWearableMeasurements(req, res) {
+    return res.status(200).json(getAllStelWearableMeasurements());
+};
+
+function httpGetAllStelWeights(req, res) {
+    return res.status(200).json(getAllStelWeights());
+};
+
 module.exports = {
     httpReceiveStelMeasurements,
     httpGetAllStelMeasurements,
@@ -77,4 +94,6 @@ module.exports = {
     httpGetAllStelPillCapMeasurements,
     httpGetAllStelSpirometrys,
     httpGetAllStelTemperatures,
+    httpGetAllStelWearableMeasurements,
+    httpGetAllStelWeights,
 };
