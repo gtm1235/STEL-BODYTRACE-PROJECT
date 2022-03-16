@@ -8,6 +8,7 @@ const validatePillCap = require('./pillcap.validate');
 const validateSpirometry = require('./spirometry.validate');
 const validateTemperature = require('./temperature.validate');
 const validateWearable = require('./wearable.validate');
+const validateWeight = require('./weight.validate')
 
 
 /*
@@ -148,7 +149,8 @@ function generalStelSchemaValidation(data) {
       return returnValueWearable;
       break;
     case "weight":
-      console.log(10);
+      const returnValueWeight = validateWeight(measurementData);
+      return returnValueWeight;
       break;
   }
 }

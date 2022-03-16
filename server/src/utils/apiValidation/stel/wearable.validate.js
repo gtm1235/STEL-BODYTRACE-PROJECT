@@ -27,7 +27,7 @@ function validateWearable(measurementData) {
                         .strict()
                         .min(0)),
 
-                "unit": Joi.valid("liters")
+                "unit": Joi.valid(null)
             }
         ).optional()
             .with('value', 'unit')

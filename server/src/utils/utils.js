@@ -129,16 +129,16 @@ function convertDataSpirometry(data) {
         data.measure.data.pef.unit = null;
     };
 
-    if (!data.measure.data.steps) {
-        data.measure.data.steps = {};
-        data.measure.data.steps.value = null;
-        data.measure.data.steps.unit = null;
+    if (!data.measure.data.fev6) {
+        data.measure.data.fev6 = {};
+        data.measure.data.fev6.value = null;
+        data.measure.data.fev6.unit = null;
     };
 
-    if (!data.measure.data.heartRate) {
-        data.measure.data.heartRate = {};
-        data.measure.data.heartRate.value = null;
-        data.measure.data.heartRate.unit = null;
+    if (!data.measure.data.fev1fev6) {
+        data.measure.data.fev1fev6 = {};
+        data.measure.data.fev1fev6.value = null;
+        data.measure.data.fev1fev6.unit = null;
     };
 
     return flattenJSON({
@@ -149,10 +149,10 @@ function convertDataSpirometry(data) {
         fev1Units: data.measure.data.fev1.unit,
         pef: data.measure.data.pef.value,
         pefUnits: data.measure.data.pef.unit,
-        steps: data.measure.data.steps.value,
-        stepsUnits: data.measure.data.steps.unit,
-        heartRate: data.measure.data.heartRate.value,
-        heartRateUnits: data.measure.data.heartRate.unit,
+        fev6: data.measure.data.fev6.value,
+        fev6Units: data.measure.data.fev6.unit,
+        fev1fev6: data.measure.data.fev1fev6.value,
+        fev1fev6Units: data.measure.data.fev1fev6.unit,
     });
 }
 

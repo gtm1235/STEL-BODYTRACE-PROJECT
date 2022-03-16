@@ -17,7 +17,7 @@ const { getAllStelWeights } = require('../../models/stel/stel.model.weight')
 
 function httpReceiveStelMeasurements(req, res) {
     const header = req.header('Authorization');
-    console.log(header)
+    
     if (header != "Bearer 1234") {
         return res.status(401).json({
             "result": "Unauthorized",

@@ -31,14 +31,15 @@ JOI Validation script is for JSON Spirometry Object Below
 */
 
 function validateSpirometry(measurementData) {
-    const spirometrySchema = Joi.object({
+    const spirometrySchema = Joi.object(
+    {
         "fvc": Joi.object(
             {
                 "value": Joi.alternatives()
                     .try(Joi.number()
                         .strict()
                         .min(0)
-                        .max(100)),
+                        .max(10)),
 
                 "unit": Joi.valid("liters")
             }
@@ -50,7 +51,7 @@ function validateSpirometry(measurementData) {
             "value": Joi.number()
                 .strict()
                 .min(0)
-                .max(100)
+                .max(10)
                 .required(),
 
             "unit": Joi.string()
@@ -81,7 +82,7 @@ function validateSpirometry(measurementData) {
                 "value": Joi.number()
                     .strict()
                     .min(0)
-                    .max(100)
+                    .max(200)
                     .required(),
 
                 "unit": Joi.string()
@@ -96,15 +97,16 @@ function validateSpirometry(measurementData) {
         "fev1fev6": Joi.object(
             {
                 "value": Joi.number()
-                    .max(100)
+                    .max(10)
                     .min(0).
                     strict(),
-                "unit": Joi.valid(null)
+                "unit": Joi.valid(null).strict()
             }
         ).optional().with('value', 'unit')
             .with('unit', 'value'),
 
-    });
+    })
+    ;
 
     const { error, value } = spirometrySchema.validate(measurementData)
 
