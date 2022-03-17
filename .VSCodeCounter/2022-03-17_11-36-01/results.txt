@@ -1,0 +1,110 @@
+Date : 2022-03-17 11:36:01
+Directory : c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT
+Total : 63 files,  45347 codes, 329 comments, 804 blanks, all 46480 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          6 |     38,050 |          0 |          6 |     38,056 |
+| JavaScript |         50 |      7,192 |        306 |        755 |      8,253 |
+| CSS        |          2 |         45 |          0 |          8 |         53 |
+| Markdown   |          2 |         38 |          0 |         34 |         72 |
+| HTML       |          2 |         21 |         23 |          1 |         45 |
+| XML        |          1 |          1 |          0 |          0 |          1 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                        |         63 |     45,347 |        329 |        804 |     46,480 |
+| client                                                                                                                   |         13 |     27,729 |         30 |         56 |     27,815 |
+| client\public                                                                                                            |          2 |         45 |         23 |          2 |         70 |
+| client\src                                                                                                               |          8 |        101 |          7 |         19 |        127 |
+| server                                                                                                                   |         48 |     17,592 |        299 |        746 |     18,637 |
+| server\public                                                                                                            |          1 |          1 |          0 |          0 |          1 |
+| server\src                                                                                                               |         45 |      7,137 |        299 |        744 |      8,180 |
+| server\src\models                                                                                                        |         14 |        290 |          6 |         98 |        394 |
+| server\src\models\bodytrace                                                                                              |          2 |          0 |          0 |          2 |          2 |
+| server\src\models\stel                                                                                                   |         10 |        200 |          0 |         79 |        279 |
+| server\src\routes                                                                                                        |          4 |        156 |          2 |         35 |        193 |
+| server\src\routes\bodytrace                                                                                              |          2 |         47 |          1 |         13 |         61 |
+| server\src\routes\stel                                                                                                   |          2 |        109 |          1 |         22 |        132 |
+| server\src\tests                                                                                                         |         12 |      6,045 |         32 |        468 |      6,545 |
+| server\src\tests\stel                                                                                                    |         12 |      6,045 |         32 |        468 |      6,545 |
+| server\src\utils                                                                                                         |         13 |        617 |        247 |        130 |        994 |
+| server\src\utils\apiValidation                                                                                           |         12 |        429 |        242 |        108 |        779 |
+| server\src\utils\apiValidation\bodytrace                                                                                 |          1 |          0 |          0 |          1 |          1 |
+| server\src\utils\apiValidation\stel                                                                                      |         11 |        429 |        242 |        107 |        778 |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                                 | language   | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\README.md                                                           | Markdown   |          0 |          0 |          1 |          1 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\README.md                                                    | Markdown   |         38 |          0 |         33 |         71 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\package-lock.json                                            | JSON       |     27,507 |          0 |          1 |     27,508 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\package.json                                                 | JSON       |         38 |          0 |          1 |         39 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\public\index.html                                            | HTML       |         20 |         23 |          1 |         44 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\public\manifest.json                                         | JSON       |         25 |          0 |          1 |         26 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\src\App.css                                                  | CSS        |         33 |          0 |          6 |         39 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\src\App.js                                                   | JavaScript |         23 |          0 |          3 |         26 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\src\App.test.js                                              | JavaScript |          7 |          0 |          2 |          9 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\src\index.css                                                | CSS        |         12 |          0 |          2 |         14 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\src\index.js                                                 | JavaScript |         12 |          3 |          3 |         18 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\src\logo.svg                                                 | XML        |          1 |          0 |          0 |          1 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\src\reportWebVitals.js                                       | JavaScript |         12 |          0 |          2 |         14 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\client\src\setupTests.js                                            | JavaScript |          1 |          4 |          1 |          6 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\package.json                                                        | JSON       |         26 |          0 |          1 |         27 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\package-lock.json                                            | JSON       |     10,429 |          0 |          1 |     10,430 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\package.json                                                 | JSON       |         25 |          0 |          1 |         26 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\public\index.html                                            | HTML       |          1 |          0 |          0 |          1 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\app.js                                                   | JavaScript |         19 |          7 |          6 |         32 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\bodytrace.model.js                                | JavaScript |         29 |          3 |          8 |         40 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\bodytrace\bodytrace.model.bp.js                   | JavaScript |          0 |          0 |          1 |          1 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\bodytrace\bodytrace.model.weight.js               | JavaScript |          0 |          0 |          1 |          1 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\stel.model.js                                     | JavaScript |         61 |          3 |          9 |         73 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\stel\stel.model.bp.js                             | JavaScript |         20 |          0 |         10 |         30 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\stel\stel.model.ekg.js                            | JavaScript |         20 |          0 |          8 |         28 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\stel\stel.model.glucose.js                        | JavaScript |         20 |          0 |          7 |         27 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\stel\stel.model.inr.js                            | JavaScript |         20 |          0 |          8 |         28 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\stel\stel.model.pill.js                           | JavaScript |         20 |          0 |          7 |         27 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\stel\stel.model.spirometer.js                     | JavaScript |         20 |          0 |         10 |         30 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\stel\stel.model.spo2.js                           | JavaScript |         20 |          0 |          8 |         28 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\stel\stel.model.temperature.js                    | JavaScript |         20 |          0 |          7 |         27 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\stel\stel.model.wearable.js                       | JavaScript |         20 |          0 |          7 |         27 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\models\stel\stel.model.weight.js                         | JavaScript |         20 |          0 |          7 |         27 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\routes\bodytrace\bodytrace.controller.js                 | JavaScript |         34 |          1 |          9 |         44 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\routes\bodytrace\bodytrace.router.js                     | JavaScript |         13 |          0 |          4 |         17 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\routes\stel\stel.controller.js                           | JavaScript |         80 |          1 |         18 |         99 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\routes\stel\stel.router.js                               | JavaScript |         29 |          0 |          4 |         33 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\server.js                                                | JavaScript |         10 |          5 |          7 |         22 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\api.general.test.js                           | JavaScript |      1,069 |         23 |         79 |      1,171 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\json.bp.validation.test.js                    | JavaScript |        618 |          1 |         46 |        665 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\json.ekg.validation.test.js                   | JavaScript |        165 |          1 |         13 |        179 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\json.general.test.js                          | JavaScript |        651 |          1 |         55 |        707 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\json.glucose.validation.test.js               | JavaScript |        190 |          1 |         18 |        209 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\json.inr.validation.test.js                   | JavaScript |        815 |          0 |         56 |        871 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\json.pillcap.validation.test.js               | JavaScript |         89 |          1 |         10 |        100 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\json.pulseox.validation.test.js               | JavaScript |        371 |          1 |         32 |        404 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\json.spirometry.validation.test.js            | JavaScript |      1,327 |          0 |         77 |      1,404 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\json.temperature.validation.test.js           | JavaScript |        190 |          1 |         18 |        209 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\json.wearable.validation.test.js              | JavaScript |        370 |          1 |         46 |        417 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\tests\stel\json.weight.validation.test.js                | JavaScript |        190 |          1 |         18 |        209 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\bodytrace\bodytracePostValidation.js | JavaScript |          0 |          0 |          1 |          1 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\stel\bp.validate.js                  | JavaScript |         45 |         23 |         11 |         79 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\stel\ekg.validate.js                 | JavaScript |         17 |         20 |          8 |         45 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\stel\glucose.validate.js             | JavaScript |         19 |         21 |          8 |         48 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\stel\inr.validate.js                 | JavaScript |         41 |         23 |         10 |         74 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\stel\pillcap.validate.js             | JavaScript |          5 |          6 |          3 |         14 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\stel\pulseox.validate.js             | JavaScript |         41 |         17 |         10 |         68 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\stel\spirometry.validate.js          | JavaScript |         76 |         28 |         14 |        118 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\stel\stelPostValidation.js           | JavaScript |        112 |         63 |         24 |        199 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\stel\temperature.validate.js         | JavaScript |         19 |         14 |          5 |         38 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\stel\wearable.validate.js            | JavaScript |         35 |         16 |          8 |         59 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\apiValidation\stel\weight.validate.js              | JavaScript |         19 |         11 |          6 |         36 |
+| c:\Users\gtm12\Documents\node\STEL-BODYTRACE-PROJECT\server\src\utils\utils.js                                           | JavaScript |        188 |          5 |         22 |        215 |
+| Total                                                                                                                    |            |     45,347 |        329 |        804 |     46,480 |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
